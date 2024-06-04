@@ -2,18 +2,8 @@ using System.Collections.Generic;
 using System;
 namespace other
 {
-
-    public class main
-    {
-        public static void Main(String[] args)
-        {
-            Solution solution = new Solution();
-            long a = solution.solution(3,[1,1]);
-            Console.WriteLine(a);
-        }
-
-    }
     //일단 최대로 작은수를 만든다.
+    //힙트리로 풀면 된데서 풀었따.
     public class Solution
     {
         public long solution(int n, int[] works)
