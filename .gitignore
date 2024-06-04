@@ -1,5 +1,4 @@
-.vscode
-bin
-obj
-Min.csproj
-Min.sln
+/.vscode
+/bin
+/obj
+/*.csproj
