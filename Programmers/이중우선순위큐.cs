@@ -4,6 +4,7 @@ namespace 이중우선순위큐
 {
     public class Solution
     {
+        //3번 테케 실패
         public int[] solution(string[] operations)
         {
             int[] answer = new int[2];
