@@ -4,7 +4,7 @@ public class main{
     public static void Main(string[] args){
         Solution solution = new Solution();
         string[] word = {"I 100", "I 90", "I 80", "D 1", "D 1", "I 95", "I 105", "D -1", "D -1"};
-        Console.WriteLine( solution.solution(word)[0] + " " + solution.solution(word)[1]);
+        Console.WriteLine( solution.solution(word)[0]);
     }
 }
 
@@ -16,18 +16,27 @@ public class Solution {
 
         foreach(var a in operations){
             string[] word = a.Split(" ");
+            
             if(word[0].Equals("I")){
+                Console.WriteLine($"Add : {word[1]}");
                 minHeap.add(int.Parse(word[1]));
-                maxHeap.add(-int.Parse(word[1]));
             }
+
+           
+
             else if(word[0].Equals("D")){
                 if(word[1].Equals("-1") && minHeap.getHeap().Count > 1){
                     minHeap.remove();
-                }else if(word[1].Equals("1") && maxHeap.getHeap().Count > 1){
-                    maxHeap.remove();
+                }else if(word[1].Equals("1") && minHeap.getHeap().Count > 1){
+                    minHeap.removeMax();
                 }
             }
+            foreach(var b in minHeap.getHeap()){
+                Console.Write($"{b} -> ");
+            }
         }
+        
+        Console.WriteLine();
         answer[0] = -maxHeap.getHeap()[0];
         answer[1] = minHeap.getHeap()[1];
         return answer;
@@ -57,7 +66,12 @@ public class Solution {
                 point = parent;
             }
         }
+        public void removeMax(){
+            Console.WriteLine($"RemoveMax {heap[heap.Count - 1]}");
+            heap.RemoveAt(heap.Count - 1);
+        }
         public void remove(){
+            Console.WriteLine($"RemoveMin {heap[1]}");
             int point = heap.Count - 1;
             heap[1] = heap[point];
             heap.RemoveAt(point);
