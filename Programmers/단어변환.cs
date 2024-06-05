@@ -2,11 +2,6 @@ namespace 단어변환
 {
     public class Solution
     {
-        public static void Main(string[] args){
-            Solution solution = new Solution();
-            Console.WriteLine(solution.solution("hit", "cog", ["cog", "log", "lot", "dog", "dot", "hot"]
-));
-        }
         public int solution(string begin, string target, string[] words)
         {
             int answer = 0;
